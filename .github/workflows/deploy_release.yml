@@ -1,0 +1,28 @@
+name: "Deploy Helm Chart to K8S"
+
+on:
+  push:
+    branches: [ "release" ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      
+      - name: Write out the kubeconfig info
+        run: |
+          echo ${{ secrets.K8S_CONFIG }} | base64 -d > /tmp/config
+
+      - name: Update deployment
+        run: |
+          helm upgrade --install pacman \
+          --namespace ns-pacman \
+          -f charts/pacman \
+          --version 0.1.0
+        env:
+          KUBECONFIG: /tmp/config
+
+      - name: Remove kubeconfig info
+        run: rm -f /tmp/config
