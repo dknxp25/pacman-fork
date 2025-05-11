@@ -16,8 +16,8 @@ jobs:
       - name: Update deployment
         run: |
           helm upgrade --install pacman \
-          --namespace ns-pacman \
           -f charts/pacman \
+          --namespace ns-pacman \
           --version 0.1.0
         env:
           KUBECONFIG: ${{ secrets.K8S_CONFIG }}
