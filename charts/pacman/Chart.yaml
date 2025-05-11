@@ -1,0 +1,10 @@
+apiVersion: v2
+name: pacman
+version: 0.1.0
+description: Pac-Man Demo App for Kubernetes
+type: application
+appVersion: "1.2.0"
+home: https://github.com/shuguet/pacman
+icon: https://shuguet.github.io/pacman/icon.png
+sources:
+  - https://github.com/dknxp25/pacman
