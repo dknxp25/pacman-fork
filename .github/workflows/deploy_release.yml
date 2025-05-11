@@ -13,10 +13,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       
-      - name: Write out the kubeconfig info
-        run: |
-          echo ${{ secrets.K8S_CONFIG }} | base64 -d > /tmp/config
-
       - name: Update deployment
         run: |
           helm upgrade --install pacman \
@@ -24,7 +20,7 @@ jobs:
           -f charts/pacman \
           --version 0.1.0
         env:
-          KUBECONFIG: /tmp/config
+          KUBECONFIG: ${{ secrets.K8S_CONFIG }}
 
       - name: Remove kubeconfig info
         run: rm -f /tmp/config
