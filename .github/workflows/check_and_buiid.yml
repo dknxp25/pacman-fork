@@ -1,6 +1,8 @@
 name: "Test Code and Build Container"
 
 on:
+  push:
+    branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
     paths:
