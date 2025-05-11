@@ -22,9 +22,6 @@ jobs:
         env:
           KUBECONFIG: ${{ secrets.K8S_CONFIG }}
 
-      - name: Remove kubeconfig info
-        run: rm -f /tmp/config
-
       - name: send result to telegram
         uses: robotomize/notify-telegram@v0.1.0
         with:
