@@ -2,7 +2,9 @@ name: "Deploy Helm Chart to K8S"
 
 on:
   push:
-    branches: [ "release" ]
+    branches: [ "main" ]
+    paths:
+      - 'src/**'
 
 jobs:
   deploy:
