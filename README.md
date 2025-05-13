@@ -1,1 +1,2 @@
-# pacman-fork
+# pacman
+PacMan Demo App for Kubernetes
