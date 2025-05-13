@@ -9,7 +9,7 @@ pacman:
     repository: dknxp25
     image: pacman-fork
     tag: latest
-    pullPolicy: IfNotPresent
+    pullPolicy: Always
 
 service:
   type: ClusterIP
